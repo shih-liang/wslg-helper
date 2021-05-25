@@ -1,0 +1,16 @@
+#!/bin/bash
+
+sudo modprobe crc32
+sudo modprobe f2fs
+sudo mount /dev/sdd3 /mnt/ssd
+cd /mnt/ssd/
+sudo mount -o bind /mnt/wslg /mnt/wslg
+sudo mount -o bind /mnt/wsl /mnt/wsl
+sudo mount -t proc /proc proc/
+sudo mount -t sysfs /sys sys/
+sudo mount -o bind /dev dev/
+sudo mount -o bind /dev/shm dev/shm/
+sudo mount -t devpts /dev/pts /mnt/ssd/dev/pts/
+sudo mount -o bind /tmp tmp/
+sudo mount -o bind /run run/
+sudo chroot . /usr/bash "export XDG_RUNTIME_DIR=/mnt/wslg/runtime-dir && export DISPLAY=:0"
