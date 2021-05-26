@@ -1,0 +1,12 @@
+sudo umount /mnt/ssd/proc
+sudo umount /mnt/ssd/sys
+sudo umount /mnt/ssd/boot
+sudo umount /mnt/ssd/dev/pts
+sudo umount /mnt/ssd/dev/shm
+sudo umount /mnt/ssd/dev
+sudo umount /mnt/ssd/run/shm
+sudo umount /mnt/ssd/run
+sudo umount /mnt/ssd/tmp
+sudo umount /mnt/ssd/mnt/wslg
+sudo umount /mnt/ssd/mnt/wsl
+sudo umount /mnt/ssd

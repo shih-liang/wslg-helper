@@ -4,14 +4,13 @@ sudo modprobe crc32
 sudo modprobe f2fs
 sudo mount /dev/sdd3 /mnt/ssd
 sudo mount /dev/sdd2 /mnt/ssd/boot
-cd /mnt/ssd/
-sudo mount -o bind /mnt/wslg /mnt/wslg
-sudo mount -o bind /mnt/wsl /mnt/wsl
-sudo mount -t proc /proc proc/
-sudo mount -t sysfs /sys sys/
-sudo mount -o bind /dev dev/
-sudo mount -o bind /dev/shm dev/shm/
+sudo mount -o bind /mnt/wslg /mnt/ssd/mnt/wslg/
+sudo mount -o bind /mnt/wsl /mnt/ssd/mnt/wsl/
+sudo mount -t proc /proc /mnt/ssd/proc/
+sudo mount -t sysfs /sys /mnt/ssd/sys/
+sudo mount -o bind /dev /mnt/ssd/dev/
 sudo mount -t devpts /dev/pts /mnt/ssd/dev/pts/
-sudo mount -o bind /tmp tmp/
-sudo mount -o bind /run run/
-sudo chroot . /usr/bash "export XDG_RUNTIME_DIR=/mnt/wslg/runtime-dir && export DISPLAY=:0"
+sudo mount -o bind /tmp /mnt/ssd/tmp/
+sudo mount -o bind /run /mnt/ssd/run/
+sudo mount -t tmpfs tmpfs /mnt/ssd/run/shm/
+sudo chroot /mnt/ssd /bin/env -i TERM=$TERM XDG_RUNTIME_DIR=/mnt/wslg/runtime-dir DISPLAY=:0 WAYLAND_DISPLAY=wayland-0 bash
