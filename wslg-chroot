@@ -3,6 +3,7 @@
 sudo modprobe crc32
 sudo modprobe f2fs
 sudo mount /dev/sdd3 /mnt/ssd
+sudo mount /dev/sdd2 /mnt/ssd/boot
 cd /mnt/ssd/
 sudo mount -o bind /mnt/wslg /mnt/wslg
 sudo mount -o bind /mnt/wsl /mnt/wsl
