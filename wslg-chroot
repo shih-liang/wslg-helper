@@ -13,4 +13,5 @@ sudo mount -t devpts /dev/pts /mnt/ssd/dev/pts/
 sudo mount -o bind /tmp /mnt/ssd/tmp/
 sudo mount -o bind /run /mnt/ssd/run/
 sudo mount -t tmpfs tmpfs /mnt/ssd/run/shm/
-sudo chroot /mnt/ssd /bin/env -i TERM=$TERM XDG_RUNTIME_DIR=/mnt/wslg/runtime-dir DISPLAY=:0 WAYLAND_DISPLAY=wayland-0 bash
+sudo chroot /mnt/ssd
+#export XDG_RUNTIME_DIR=/mnt/wslg/runtime-dir DISPLAY=:0 WAYLAND_DISPLAY=wayland-0
